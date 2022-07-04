@@ -1,1 +1,1 @@
-"# React-Typescript-Price-Chart" 
+# React Typescript Token Price Chart Web App
