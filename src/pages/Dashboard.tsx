@@ -17,6 +17,7 @@ import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import { chartAction, newsAction } from 'state/dashboard/actions';
 
 import axios from 'utils/axios';
+import { corsRequest } from 'utils/corsRequest';
 
 const Dashboard = () => {
     const theme = useTheme();
@@ -52,14 +53,15 @@ const Dashboard = () => {
     };
     useEffect(() => {
         if (!news.length) {
-            axios
-                .get('https://news.bitcoin.com/wp-content/weekly_popular_posts.json')
-                .then(({ data }) => {
-                    dispatch(newsAction(data ?? []));
-                })
-                .catch((e) => {
-                    console.log(e);
-                });
+            corsRequest(
+                {
+                    method: 'GET',
+                    url: 'https://news.bitcoin.com/wp-content/weekly_popular_posts.json'
+                },
+                (result: any) => {
+                    dispatch(newsAction(result ?? []));
+                }
+            );
         }
         if (!cData.length) {
             axios
