@@ -26,6 +26,7 @@
         "import/order": 0,
         "no-console": 0,
         "no-shadow": 0,
+        "@typescript-eslint/no-shadow": 0,
         "react-hooks/exhaustive-deps": 0,
         "@typescript-eslint/naming-convention": 0,
         "import/no-cycle": 0,

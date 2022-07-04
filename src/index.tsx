@@ -1,3 +1,4 @@
+import ReduxProvider from 'providers/redux';
 import App from './App';
 
 import {
@@ -11,17 +12,19 @@ import {
 } from './providers';
 
 Root.render(
-    <ConfigProvider>
-        <MuiThemeProvider>
-            <APIProvider>
-                <Web3ReactProvider>
-                    <ToastsProvider>
-                        <ModalProvider>
-                            <App />
-                        </ModalProvider>
-                    </ToastsProvider>
-                </Web3ReactProvider>
-            </APIProvider>
-        </MuiThemeProvider>
-    </ConfigProvider>
+    <ReduxProvider>
+        <ConfigProvider>
+            <MuiThemeProvider>
+                <APIProvider>
+                    <Web3ReactProvider>
+                        <ToastsProvider>
+                            <ModalProvider>
+                                <App />
+                            </ModalProvider>
+                        </ToastsProvider>
+                    </Web3ReactProvider>
+                </APIProvider>
+            </MuiThemeProvider>
+        </ConfigProvider>
+    </ReduxProvider>
 );
